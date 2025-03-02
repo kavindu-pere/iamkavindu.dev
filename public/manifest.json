@@ -1,0 +1,21 @@
+{
+  "name": "Kavindu Perera - Software Engineer",
+  "short_name": "Kavindu Perera",
+  "description": "Backend Software Engineer specializing in Java, Spring Boot, and microservices architecture. Building scalable backend solutions with modern technologies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#cbd5e1",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

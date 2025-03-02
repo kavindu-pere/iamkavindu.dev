@@ -1,17 +1,25 @@
-# Personal Portfolio Website
+# iamkavindu.dev
 
-This is the personal portfolio website for Kavindu Perera, built with Next.js and deployed on GitHub Pages.
+My personal portfolio website built with Next.js and Typescript showcasing my work as a Backend Software Engineer specializing in Java and Spring Boot technologies.
 
-## Security Features
+Visit my portfolio: [iamkavindu.dev](https://iamkavindu.dev)
 
-- Content Security Policy (CSP) implementation
-- Secure external link handling
-- URL sanitization for social media links
-- Image loading security measures
-- HTTP security headers
-- GitHub Actions workflow security
+## About Me
 
-## Development
+I'm a Backend Software Engineer with expertise in:
+- Java & Spring Boot
+- Microservices Architecture
+- RESTful APIs
+- Cloud Technologies
+- Database Design & Implementation
+
+## Tech Stack (Portfolio Site)
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+## Getting Started
 
 ```bash
 # Install dependencies
@@ -20,44 +28,18 @@ npm install
 # Run development server
 npm run dev
 
-# Type checking
-npm run typecheck
-
 # Build for production
 npm run build
 ```
 
-## Security Considerations
+Visit [http://localhost:3000](http://localhost:3000) to view the site in development mode.
 
-### Environment Variables
-All sensitive information should be managed through GitHub Secrets and not committed to the repository.
+## Contact
 
-### External Links
-All external links are sanitized and restricted to allowed domains (LinkedIn, GitHub, Medium).
-
-### Content Security
-The site implements a strict Content Security Policy to prevent XSS attacks and other security vulnerabilities.
-
-## Deployment
-
-The site is automatically deployed to GitHub Pages through GitHub Actions when changes are pushed to the main branch.
-
-### Deployment Security
-- All dependencies are automatically audited during build
-- TypeScript type checking is enforced
-- Secure headers are automatically applied
-- Image optimization is handled by Next.js
-
-## Contributing
-
-1. Create a feature branch
-2. Make your changes
-3. Run type checking and build
-4. Submit a pull request
-
-## Security Reporting
-
-If you discover any security-related issues, please email directly instead of using the issue tracker.
+You can find me on:
+- LinkedIn: [Kavindu Perera](https://linkedin.com/in/iamkavindu)
+- GitHub: [@kavindu-pere](https://github.com/kavindu-pere)
+- Medium: [@kavindu-pere](https://medium.com/@kavindu-pere)
 
 ## License
 

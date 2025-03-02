@@ -13,7 +13,7 @@ export default function Home() {
         <div className="flex-1 text-center md:text-left space-y-8">
           <h2 className="text-3xl md:text-4xl font-light">Hey there,</h2>
           <h1 className="text-3xl md:text-4xl font-light">I am <span className="font-bold">Kavindu Perera</span>.</h1>
-          <p>I am currently a Software Engineer at Wiley, working within a cross-functional team to create user-centric and scalable solutions.</p>
+          <p>I am currently a Software Engineer at Wiley, specializing in backend development with Java and Spring Boot. I build robust, scalable backend solutions with a focus on microservices architecture and cloud technologies.</p>
 
           <div className="flex justify-center md:justify-start space-x-6">
             <a
