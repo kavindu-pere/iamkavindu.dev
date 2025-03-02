@@ -18,19 +18,28 @@ export default function Home() {
           <div className="flex justify-center md:justify-start space-x-6">
             <a
               href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Follow on LinkedIn"
+              className="transition-colors duration-200"
             >
               <LinkedInIcon className="w-10 h-10 text-slate-800 hover:text-slate-700" />
             </a>
             <a
               href={socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Follow on GitHub"
+              className="transition-colors duration-200"
             >
               <GitHubIcon className="w-10 h-10 text-slate-800 hover:text-slate-700" />
             </a>
             <a
               href={socialLinks.medium}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Follow on Medium"
+              className="transition-colors duration-200"
             >
               <MediumIcon className="w-10 h-10 text-slate-800 hover:text-slate-700" />
             </a>
@@ -39,6 +48,7 @@ export default function Home() {
 
         <ProfilePicture 
           alt="Kavindu Perera's profile picture"
+          className="w-48 h-48 md:w-64 md:h-64 shadow-lg"
         />
       </div>
     </main>

@@ -13,7 +13,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
+# Security: Only allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -22,9 +22,15 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15  # Add timeout for security
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,7 +39,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm audit
 
       - name: Configure Next.js for static export
         run: |
@@ -42,9 +50,7 @@ jobs:
           /** @type {import('next').NextConfig} */
           const nextConfig = {
             output: 'export',
-            // Configure for GitHub Pages path prefix if your repo name is not the username.github.io
-            basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
-            assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH ? `${process.env.NEXT_PUBLIC_BASE_PATH}/` : '',
+            poweredByHeader: false,
             images: {
               unoptimized: true,
             },
@@ -53,6 +59,8 @@ jobs:
           EOL
 
       - name: Build with Next.js
+        env:
+          NODE_ENV: production
         run: npm run build
 
       - name: Upload artifact

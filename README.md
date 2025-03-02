@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Website
 
-## Getting Started
+This is the personal portfolio website for Kavindu Perera, built with Next.js and deployed on GitHub Pages.
 
-First, run the development server:
+## Security Features
+
+- Content Security Policy (CSP) implementation
+- Secure external link handling
+- URL sanitization for social media links
+- Image loading security measures
+- HTTP security headers
+- GitHub Actions workflow security
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Type checking
+npm run typecheck
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Security Considerations
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
+All sensitive information should be managed through GitHub Secrets and not committed to the repository.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### External Links
+All external links are sanitized and restricted to allowed domains (LinkedIn, GitHub, Medium).
 
-## Learn More
+### Content Security
+The site implements a strict Content Security Policy to prevent XSS attacks and other security vulnerabilities.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site is automatically deployed to GitHub Pages through GitHub Actions when changes are pushed to the main branch.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deployment Security
+- All dependencies are automatically audited during build
+- TypeScript type checking is enforced
+- Secure headers are automatically applied
+- Image optimization is handled by Next.js
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a feature branch
+2. Make your changes
+3. Run type checking and build
+4. Submit a pull request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Security Reporting
+
+If you discover any security-related issues, please email directly instead of using the issue tracker.
+
+## License
+
+All rights reserved. This source code is the property of Kavindu Perera.

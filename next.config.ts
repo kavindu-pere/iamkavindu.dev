@@ -1,16 +1,37 @@
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=63072000; includeSubDomains; preload'
+  },
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on'
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY'
+  }
+];
+
 const nextConfig: NextConfig = {
   output: 'export',
-  // Remove basePath and assetPrefix for custom domain
+  poweredByHeader: false, // Remove X-Powered-By header
   images: {
     unoptimized: true,
   },
-  // Add trailing slash for consistent routing
   trailingSlash: true,
-  // Disable unnecessary features for static export
   reactStrictMode: true,
   swcMinify: true,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

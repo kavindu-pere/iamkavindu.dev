@@ -26,6 +26,38 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={`
+            default-src 'self';
+            img-src 'self' data: https:;
+            script-src 'self' 'unsafe-inline';
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+            font-src 'self' https://fonts.gstatic.com;
+            connect-src 'self';
+            frame-ancestors 'none';
+            form-action 'self';
+            base-uri 'self';
+          `.replace(/\s+/g, ' ').trim()}
+        />
+        <meta
+          httpEquiv="X-Content-Type-Options"
+          content="nosniff"
+        />
+        <meta
+          httpEquiv="X-Frame-Options"
+          content="DENY"
+        />
+        <meta
+          httpEquiv="Permissions-Policy"
+          content="camera=(), microphone=(), geolocation=()"
+        />
+        <meta
+          name="referrer"
+          content="strict-origin-when-cross-origin"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

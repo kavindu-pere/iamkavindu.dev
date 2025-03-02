@@ -1,0 +1,7 @@
+# These owners will be the default owners for everything in the repo
+* @kavindu-pere
+
+# Critical configuration files
+/next.config.ts @kavindu-pere
+/.github/workflows/ @kavindu-pere
+/public/data/ @kavindu-pere
