@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 interface ProfilePictureProps {
@@ -12,15 +12,19 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
   alt,
   className = "w-48 h-48 md:w-64 md:h-64" 
 }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div className={`${className} rounded-full bg-slate-200 border-4 border-slate-800 overflow-hidden flex items-center justify-center`}>
-      {src ? (
+      {src && !imageError ? (
         <Image 
           src={src} 
           alt={alt} 
           width={256} 
           height={256} 
           className="w-full h-full object-cover"
+          onError={() => setImageError(true)}
+          priority // Add priority to load image early
         />
       ) : (
         <svg 
