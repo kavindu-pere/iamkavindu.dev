@@ -52,29 +52,26 @@ export function getSocialLinks(): SocialLinks {
 
       const fileContent = fs.readFileSync(filePath, 'utf8');
       
-      // Extract content between --- markers
-      const match = fileContent.match(/---\n([\s\S]*?)\n---/);
-      
-      if (!match) {
-        console.error("Invalid markdown format in social-links.md");
-        return getDefaultLinks();
-      }
-      
-      const content = match[1];
-      const lines = content.split('\n');
-      
+      // Parse markdown list items with format: "- Platform: [url](url)"
       const socialLinks: Partial<SocialLinks> = {};
       
-      lines.forEach(line => {
-        const colonIndex = line.indexOf(': ');
-        if (colonIndex > -1) {
-          const key = line.substring(0, colonIndex).trim();
-          const value = line.substring(colonIndex + 2).trim();
-          if (key && value) {
-            socialLinks[key as keyof SocialLinks] = sanitizeUrl(value);
-          }
-        }
-      });
+      // Match for LinkedIn
+      const linkedinMatch = fileContent.match(/- LinkedIn:[^\[]*\[([^\]]+)\]/i);
+      if (linkedinMatch && linkedinMatch[1]) {
+        socialLinks.linkedin = sanitizeUrl(linkedinMatch[1]);
+      }
+      
+      // Match for GitHub
+      const githubMatch = fileContent.match(/- GitHub:[^\[]*\[([^\]]+)\]/i);
+      if (githubMatch && githubMatch[1]) {
+        socialLinks.github = sanitizeUrl(githubMatch[1]);
+      }
+      
+      // Match for Medium
+      const mediumMatch = fileContent.match(/- Medium:[^\[]*\[([^\]]+)\]/i);
+      if (mediumMatch && mediumMatch[1]) {
+        socialLinks.medium = sanitizeUrl(mediumMatch[1]);
+      }
       
       const links = {
         linkedin: socialLinks.linkedin || getDefaultLinks().linkedin,
