@@ -43,24 +43,10 @@ jobs:
           npm ci
           npm audit
 
-      - name: Configure Next.js for static export
-        run: |
-          echo "Creating next.config.js for static export"
-          cat > next.config.mjs << 'EOL'
-          /** @type {import('next').NextConfig} */
-          const nextConfig = {
-            output: 'export',
-            poweredByHeader: false,
-            images: {
-              unoptimized: true,
-            },
-          }
-          export default nextConfig
-          EOL
-
       - name: Build with Next.js
         env:
           NODE_ENV: production
+          NEXT_PUBLIC_LAUNCHDARKLY_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_LAUNCHDARKLY_CLIENT_ID }}
         run: npm run build
 
       - name: Upload artifact
