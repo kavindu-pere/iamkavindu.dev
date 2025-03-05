@@ -17,23 +17,18 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: 'export',
-  poweredByHeader: false, // Remove X-Powered-By header
+  poweredByHeader: false,
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './lib/imageLoader.ts',
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   trailingSlash: true,
   reactStrictMode: true,
-  swcMinify: true,
   env: {
     NEXT_PUBLIC_LAUNCHDARKLY_CLIENT_ID: process.env.NEXT_PUBLIC_LAUNCHDARKLY_CLIENT_ID,
-  },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: securityHeaders,
-      },
-    ];
   },
 };
 
